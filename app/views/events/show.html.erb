@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.name %></div>
+
+  <div class="panel-body">
+
+    <p>Description: <%= @event.description %></p>
+    <p>Host: <%= @event.user.email %></p>
+
+    <!-- Main Info -->
+    <h4>Main Info</h4>
+    <p>Location: <%= @event.location %></p>
+    <p>Price:<%= @event.price %></p>
+    <p>Maximum people to participate: <%= @event.capacity %></p>
+    <p>Free drinks? <%= @event.includes_drinks? %></p>
+    <p>Starts at: <%= @event.starts_at %></p>
+    <p>Ends at: <%= @event.ends_at %></p>
+
+    <h4>Themes</h4>
+    <% @themes.each do |theme| %>
+    <span class="label label-success"><%= theme.name %></span>
+    <% end %>
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>
