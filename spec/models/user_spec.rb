@@ -17,4 +17,9 @@ RSpec.describe User, type: :model do
       expect { user.destroy }.to change(Event, :count).by(-1)
     end
   end
+
+  describe "association with profile" do
+    it { is_expected.to have_one :profile }
+  end
+
 end
