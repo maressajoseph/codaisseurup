@@ -5,6 +5,6 @@ describe "About Page" do
     visit root_url
     click_on "About"
 
-    expect(page).to have_content "This application was built in 2017"
+    expect(page).to have_content "About CodaisseurUp"
   end
 end
