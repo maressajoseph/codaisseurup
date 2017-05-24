@@ -6,7 +6,7 @@ FactoryGirl.define do
     ends_at           DateTime.now
     includes_drinks   true
     includes_food     true
-    capacity          { Faker::Commerce.capacity }
+    capacity          { Faker::Number.capacity(2) }
     price             { Faker::Commerce.price }
     user              { build(:user) }
 
