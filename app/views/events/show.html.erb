@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel panel-default">
   <div class="panel-heading"><%= @event.name %></div>
 
   <div class="panel-body">
@@ -8,9 +8,25 @@
 
     <h4>Main Information</h4>
     <p>Location: <%= @event.location %></p>
-    <p>Price:<%= @event.price %></p>
-    <p>Maximum people to participate: <%= @event.capacity %></p>
-    <p>Free drinks? <%= @event.includes_drinks? %></p>
+    <p>Price:
+      <% if @event.price == 0.0 %>
+      <%= "Free" %></p>
+      <% else %>
+      <%= @event.price %>
+      <% end %>
+    <p>Maximum people that can participate: <%= @event.capacity %></p>
+    <p>Free drinks?
+      <% if @event.includes_drinks == true %>
+        <%= "Yes" %>
+      <% else %>
+        <%= "No" %></p>
+      <% end %>
+      <p>Free food?
+        <% if @event.includes_food == true %>
+          <%= "Yes" %>
+        <% else %>
+          <%= "No" %></p>
+        <% end %>
     <p>Starts at: <%= @event.starts_at %></p>
     <p>Ends at: <%= @event.ends_at %></p>
 

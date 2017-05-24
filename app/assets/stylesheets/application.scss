@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.btn-default {
+  background-color: #36393e;;
+  color: white;
+  opacity: 0.5;
+}
+
+.navbar {
+  background-color: #e6b3b3;
+}
+
+.error-message {
+  color: #ff009a;
+}
