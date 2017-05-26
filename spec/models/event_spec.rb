@@ -67,4 +67,8 @@ RSpec.describe Event, type: :model do
     end
   end
 
+  #describe "set total price and status" do
+  #  let
+  #end
+
 end
