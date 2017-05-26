@@ -1,0 +1,21 @@
+<%= form_for [@event, @event.registrations.new] do |f| %>
+  <p><strong>Price:</strong> <span>€</span> <%= @event.price %></p>
+
+  <hr>
+
+  <div class="form-group">
+    <label>How many people are going to attend:</label>
+    <%= f.number_field :guests_count %>
+  </div>
+
+  <div class="form-group">
+    <label>Status</label>
+    <%= f.text_field :status %>
+  </div>
+
+  <hr>
+
+  <div class="actions">
+    <%= f.submit "Register now for this event", class: "btn btn-default" %>
+  </div>
+<% end %>
