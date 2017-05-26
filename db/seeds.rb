@@ -28,5 +28,5 @@ event3 = Event.create(name: "Walk + Lunch", description: "Walk + Lunch", locatio
 capacity: 10, includes_food: true, includes_drinks: true, starts_at: DateTime.now,
 ends_at: DateTime.now, active: true, user: maressa2, themes: [activity, lunch])
 
-Registration.create(event: event1, user: maressa, status: "Going", price: 100, guest_count: guests.count)
-Registration.create(event: event1, user: maressa1, status: "Going", price: 200, guest_count: guests.count))
+Registration.create(event: event1, user: maressa, status: "Going", price: 100, guest_count: 1)
+Registration.create(event: event1, user: maressa1, status: "Going", price: 200, guest_count: 2)
