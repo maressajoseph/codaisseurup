@@ -13,6 +13,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
+      image_params.each do |image|
+        @event.photos.create(image: image)
+      end
+
       redirect_to @event, notice: "Event was successfully created"
     else
       render :new
@@ -21,6 +25,7 @@ class EventsController < ApplicationController
 
   def show
     @themes = @event.themes
+    @photos = @event.photos
   end
 
   def edit
@@ -28,6 +33,10 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
+      image_params.each do |image|
+        @event.photos.create(image: image)
+      end
+
       redirect_to @event, notice: "Event was successfully updated"
     else
       render :edit
@@ -43,6 +52,10 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :description, :location, :price,
     :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, theme_ids: [])
+  end
+
+  def image_params
+    params[:images].present? ? params.require(:images) : []
   end
 
 end
