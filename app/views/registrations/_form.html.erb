@@ -5,7 +5,7 @@
 
   <div class="form-group">
     <label>How many people are going to attend:</label>
-    <%= f.number_field :guests_count %>
+    <%= f.select :guests_count, [["1", 1], ["2", 2], ["3", 3]] %>
   </div>
 
   <hr>

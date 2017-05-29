@@ -11,9 +11,9 @@ class Registration < ApplicationRecord
 
   def set_status
     if @registration = Registration.new
-      status = "Booked"
+      puts status = "Booked"
     else
-      status = "Not booked"
+      puts status = "Not booked"
     end
   end
 end
