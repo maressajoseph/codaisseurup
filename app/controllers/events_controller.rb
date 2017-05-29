@@ -17,7 +17,7 @@ class EventsController < ApplicationController
         @event.photos.create(image: image)
       end
 
-      redirect_to @event, notice: "Event was successfully created"
+      redirect_to edit_event_path(@event), notice: "Event successfully created"
     else
       render :new
     end
@@ -29,6 +29,11 @@ class EventsController < ApplicationController
   end
 
   def edit
+    if current_user.id == @event.user.id
+      @photos = @event.photos
+    else
+      redirect_to root_path, notice: "You don't have permission."
+    end
   end
 
   def update
@@ -37,7 +42,7 @@ class EventsController < ApplicationController
         @event.photos.create(image: image)
       end
 
-      redirect_to @event, notice: "Event was successfully updated"
+      redirect_to edit_event_path(@event), notice: "Event successfully created"
     else
       render :edit
     end

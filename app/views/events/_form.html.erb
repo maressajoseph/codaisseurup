@@ -5,7 +5,7 @@
 </ul>
 <br>
 
-<%= form_for @event do |f| %>
+<%= form_for @event, html: { multipart: true } do |f| %>
 
   <div class="form-group">
     <label>Event name</label>
@@ -69,6 +69,18 @@
    <%= f.radio_button(:includes_food, false) %>
    <%= label(:includes_drinks, "No") %>
 </div>
+
+  <div class="form-group">
+    <label>Photos</label>
+    <span>
+      <br>Upload Photos
+      <%= file_field_tag "images[]", type: :file, multiple: true %>
+    </span>
+  </div>
+
+  <div id="photos">
+    <%= render 'photos/list' %>
+  </div>
 
   <div class="form-group">
     <label>Publish this event?</label>
