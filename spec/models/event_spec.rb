@@ -67,8 +67,22 @@ RSpec.describe Event, type: :model do
     end
   end
 
-  #describe "set total price and status" do
-  #  let
-  #end
+  describe ".order_by_name" do
+  let!(:event1) { create :event, name: "a" }
+  let!(:event2) { create :event, name: "b" }
+  let!(:event3) { create :event, name: "c" }
+
+    it "returns a sorted array of events by names" do
+      expect(Event.order_by_name).to match_array [event1, event2, event3]
+    end
+  end
+
+  describe ".starts_on" do
+  let!(:event1) { create :event, starts_at: "2017-06-01 10:10:05" }
+
+    it "returns events that start on given date" do
+      expect(Event.starts_on("2017-06-01 10:10:05")).to match_array [event1]
+    end
+  end
 
 end
